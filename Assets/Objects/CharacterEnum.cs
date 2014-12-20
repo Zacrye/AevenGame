@@ -12,19 +12,36 @@ namespace AssemblyCSharp
 {
 	public enum CharacterClass
 	{
-		Combatant = 1, Laborer = 2
+		Error = 0, Combatant = 1, Laborer = 2
 	}
 	public enum CharacterRace
 	{
-		Human = 1, Dwarf = 2, Elf = 3, IgnezorOrc = 4, TerrazorOrc = 5, BelzorOrc = 6
+		Error = 0, Human = 1, Dwarf = 2, Elf = 3, IgnezorOrc = 4, TerrazorOrc = 5, BelzorOrc = 6
 	}
 	public enum CharacterFaction
 	{
-		TheAlliance = 1, IgnezorOrc = 2, TerrazorOrc = 3, BelzorOrc = 4
+		Error = 0, TheAccord = 1, IgnezorOrc = 2, TerrazorOrc = 3, BelzorOrc = 4
 	}
-	public enum CharacterGender
+	public enum CharacterSex
 	{
-		Male = 1, Female = 2
+		Error = 0, Male = 1, Female = 2
+	}
+
+	public static class EnumFunctions {
+		public static CharacterFaction getFactionFromRace(CharacterRace race) {
+			if ((race == CharacterRace.Human) || (race == CharacterRace.Dwarf) || (race == CharacterRace.Elf)) {
+				return CharacterFaction.TheAccord;
+			} else if (race == CharacterRace.IgnezorOrc) {
+				return CharacterFaction.IgnezorOrc;
+			} else if (race == CharacterRace.TerrazorOrc) {
+				return CharacterFaction.TerrazorOrc;
+			} else if (race == CharacterRace.BelzorOrc) {
+				return CharacterFaction.BelzorOrc;
+			} else {
+				//figure out how to throw error here
+				return CharacterFaction.Error;
+			}
+		}
 	}
 }
 

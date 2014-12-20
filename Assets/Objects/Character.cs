@@ -12,16 +12,14 @@ namespace AssemblyCSharp
 {
 	public class Character
 	{
-		public string name { get; set; }
+		public string charName { get; set; }
 		public CharacterClass charClass { get; set; }
 		public CharacterRace charRace { get; set; }
-		public CharacterFaction faction { get; set; }
-		public CharacterGender gender { get; set; }
+		public CharacterFaction charFaction { get; set; }
+		public CharacterSex charSex { get; set; }
 
-		public Character(string name, CharacterClass charClass, CharacterRace charRace) {
-			this.name = name;
-			this.charClass = charClass;
-			this.charRace = charRace;
+		public Character() {
+
 		}
 	}
 }
